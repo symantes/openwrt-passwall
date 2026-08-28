@@ -147,6 +147,19 @@ o.validate = function(self, value, t)
 end
 o:depends({ custom = false })
 
+o = s:option(FileUpload, "ech_keyFile", translate("ECH key absolute path"), translate("as:") .. "/etc/ssl/ech.pem")
+o.validate = function(self, value, t)
+	if value and value ~= "" then
+		if not fs.access(value) then
+			return nil, translate("Can't find this file!")
+		else
+			return value
+		end
+	end
+	return nil
+end
+o:depends({ custom = false })
+
 o = s:option(Flag, "firewall_allow", translate("Firewall Allow"))
 o.default = "0"
 o:depends({ custom = false })
