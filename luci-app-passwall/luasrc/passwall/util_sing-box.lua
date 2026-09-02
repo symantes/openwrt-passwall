@@ -1621,7 +1621,7 @@ function gen_config(var)
 							end
 						end
 					end
-					
+
 					local rule = {
 						action = "route",
 						inbound = inboundTag,
@@ -2202,7 +2202,7 @@ function gen_config(var)
 			table.insert(route.rule_set, v)
 		end
 	end
-	
+
 	if inbounds or outbounds then
 		local config = {
 			log = {
@@ -2349,7 +2349,7 @@ function gen_proto_config(var)
 		}
 		if outbound then table.insert(outbounds, outbound) end
 	end
-	
+
 	local config = {
 		log = {
 			disabled = true,
